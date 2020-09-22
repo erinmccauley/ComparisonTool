@@ -1,0 +1,35 @@
+﻿@using CompareContacts.Models
+@model IEnumerable<Contact>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Users</title>
+</head>
+<body>
+
+    <table cellpadding="0" cellspacing="0" border="1">
+        <tr>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Email</th>
+            <th>Region</th>
+            <th>Office</th>
+        </tr>
+        @foreach (Contact contact in Model)
+        {
+            <tr>
+                <td>@contact.Name</td>
+                <td>@contact.Title</td>
+                <td>@contact.Email</td>
+                <td>@contact.Region</td>
+                <td>@contact.Office</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
+

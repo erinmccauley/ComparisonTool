@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Contact>
+@{ 
+    Layout = null;
+}
+
+<form asp-controller="Contacts" asp-action="Index" method="post" enctype="multipart/form-data">
+    <input multiple type="file" name="file" />
+    <hr />
+    <button type="submit">Upload</button>
+</form>
+
+@section Scripts {
+<script>
+    $(document).ready(function () {
+        $(".custom-file-input").on("change", function () {
+            console.log($(this));
+
+    });
+    
+</script>
+
+}
+
+@if (Model.Count() > 0)
+{
+    <hr />
+    <table cellpadding="0" cellspacing="0" border="1">
+        <tr>
+            <td>Name</td>
+            <td>Title</td>
+            <td>Email Address</td>
+            <td>Region</td>
+            <td>Office</td>
+        </tr>
+        @foreach (Contact contact in Model)
+        {
+            <tr>
+                <td>@contact.Name</td>
+                <td>@contact.Title</td>
+                <td>@contact.Email Address</td>
+                <td>@contact.Region</td>
+                <td>@contact.Office</td>
+            </tr>
+
+        }
+    </table>
+
+}
